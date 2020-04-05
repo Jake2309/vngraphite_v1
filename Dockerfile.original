@@ -1,0 +1,18 @@
+﻿FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
+WORKDIR /app
+
+# copy csproj and restore as distinct layers
+COPY *.sln .
+COPY vngraphitecore/*.csproj ./vngraphitecore/
+RUN dotnet restore
+
+# copy everything else and build app
+COPY vngraphitecore/. ./vngraphitecore/
+WORKDIR /app/vngraphitecore
+RUN dotnet publish -c Release -o out
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/core/runtime:2.1
+WORKDIR /app
+COPY --from=build /app/vngraphitecore/out ./
+ENTRYPOINT ["dotnet", "vngraphitecore.dll"]

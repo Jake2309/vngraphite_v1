@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Sản phẩm";
+}
+
+@section Scripts{
+    <script src="~/dist/product-mng.bundle.js"></script>
+}
+
+<div id="product-contain" class="mb-5">
+    <div id="team-header-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-target="#pills-up-prd">
+                <img src="~/dist/images/product-1.png" class="d-block w-100">
+                <div class="carousel-caption d-md-block">
+                    <div class="row">
+                        <div class="col-sm text-center tracking-in-contract-bck-bottom">
+                            <h4>
+                                SẢN PHẨM TUYỂN NỔI
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" data-target="#pills-deep-prd">
+                <img src="~/dist/images/product-2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <div class="row">
+                        <div class="col-sm text-center tracking-in-contract-bck-bottom">
+                            <h4>
+                                SẢN PHẨM TUYỂN SÂU VÀ CHẾ BIẾN
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#team-header-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#team-header-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid p-0">
+        <ul class="nav nav-pills nav-fill mb-3 d-none high-tech" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active text-uppercase text-white font-weight-bold" id="pills-up-prd-tab" data-toggle="pill" href="#pills-up-prd" role="tab" aria-controls="pills-home" aria-selected="true">SẢN PHẨM TUYỂN NỔI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-uppercase text-white font-weight-bold" id="pills-deep-prd-tab" data-toggle="pill" href="#pills-deep-prd" role="tab" aria-controls="pills-profile" aria-selected="false">SẢN PHẨM TUYỂN SÂU VÀ CHẾ BIẾN</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-up-prd" role="tabpanel" aria-labelledby="pills-up-prd-tab">
+                <partial name="_FloatingProduct.Mobile" />
+            </div>
+            <div class="tab-pane fade" id="pills-deep-prd" role="tabpanel" aria-labelledby="pills-deep-prd-tab">
+                <partial name="_DeepProduct.Mobile" />
+            </div>
+        </div>
+    </div>
+</div>
+

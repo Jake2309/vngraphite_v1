@@ -1,0 +1,71 @@
+﻿@model Dictionary<int, List<NewsModel>>
+@{
+    ViewData["Title"] = "Tin tức";
+    var dictCategory = ViewData["Category"] as Dictionary<int, string>;
+}
+
+@section Scripts{
+    <script src="~/dist/news-mng.bundle.js"></script>
+}
+
+<div id="news-contain" class="mb-5">
+    <div id="news-header-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/dist/images/news-header.png" class="d-block w-100">
+            </div>
+        </div>
+    </div>
+    @if (Model.Any())
+    {
+        foreach (var newsDict in Model)
+        {
+            <div class="mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="font-weight-bold my-0 text-uppercase graphite-font-color">@dictCategory[newsDict.Key]</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <small class="font-weight-bold"><a class="graphite-font-color" href="#">Xem tất cả</a></small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (var newsItem in newsDict.Value)
+                        {
+                            <div class="col-md-4 mt-5">
+                                <div class="row text-lg-left">
+                                    <div class="col-12 text-dark">
+                                        <figure>
+                                            <img class="w-100" src="@newsItem.ShortcutImage" />
+                                        </figure>
+                                    </div>
+                                    <div class="col-12 pt-2 text-dark news-contain">
+                                        <div class="col-12 p-0 title-contain">
+                                            <a class="font-weight-bold h5" href="@Url.Action("Detail", "News", new { slug = newsItem.Slug })">
+                                                @newsItem.Title
+                                            </a>
+                                        </div>
+                                        <div><span>@newsItem.ShortDescription</span></div>
+                                    </div>
+                                    <div class="col-12 text-dark">
+                                        <hr />
+                                    </div>
+                                    <div class="row col-12 pr-0">
+                                        <div class="col">
+                                            <small>@newsItem.PublishDate</small>
+                                        </div>
+                                        <div class="col text-right p-0">
+                                            <a class="text-dark" href="@Url.Action("Detail", "News", new { slug = newsItem.Slug })">Chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+

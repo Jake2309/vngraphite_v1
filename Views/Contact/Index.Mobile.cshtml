@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Liên hệ";
+}
+
+@section Scripts{
+    <script src="~/dist/contact-mng.bundle.js"></script>
+}
+
+<div id="contact-contain" class="mb-5">
+    <div id="contact-header-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/dist/images/contact-header.jpg" class="d-block w-100 slide">
+            </div>
+        </div>
+        <div class="carousel-caption">
+            <div class="row">
+                <div class="col-sm text-center focus-in-contract-bck">
+                    <h3 class="font-weight-bold">LIÊN HỆ</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row p-2">
+            <div class="col-12">
+                <div class="row">
+                    <a href="https://www.google.com/maps/place/T%C3%B2a+nh%C3%A0+Vi%E1%BB%87t+%C3%81+-+V%C4%83n+ph%C3%B2ng+cho+thu%C3%AA/21.031304,105.7799933,17z/data=!3m1!4b1!4m5!3m4!1s0x3135aba28939b577:0xc31d2d36324094ee!8m2!3d21.031299!4d105.782182">
+                        <img src="~/dist/images/map.jpg" class="d-block w-100">
+                    </a>
+                </div>
+                <div class="row pt-3">
+                    <h5 class="graphite-font-color font-weight-bold">
+                        @Html.Raw("CÔNG TY TNHH TẬP ĐOÀN <br/>GRAPHITE VIETNAM")
+                    </h5>
+                </div>
+                <hr class="row" style="background-color: #253A76" />
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <span class="font-weight-bold text-danger">A:</span>
+                        Tầng 15, Tòa nhà Việt Á, Phố Duy Tân, Cầu Giấy, Hà Nội
+                    </div>
+                    <div class="col-12 p-0">
+                        <span class="font-weight-bold text-danger">T:</span>
+                        02437 833 692
+                    </div>
+                    <div class="col-12 p-0">
+                        <span class="font-weight-bold text-danger">E:</span>
+                        lienhe@vietnamgraphite.com
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <form class="form-horizontal w-100">
+                        <div class="form-group">
+                            <label for="ipName">Họ và tên <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="ipName" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="ipEmail">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="ipEmail" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="ipPhone">Số điện thoại <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="ipPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="ipTitle">Tiêu đề <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="ipTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="ipContent">Nội dung <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="ipContent" rows="3"></textarea>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

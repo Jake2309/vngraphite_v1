@@ -1,0 +1,57 @@
+﻿@model NewsModel
+
+@{
+    var sameCats = SampleData.NewsData.Where(x => x.CategoryID == Model.CategoryID && x.Id != Model.Id).ToList();
+}
+
+<div class="col-12">
+    <div class="col-12 p-0">
+        <p class="h3">@Model.Title</p>
+        <small>@Model.PublishDate</small>
+    </div>
+    <div class="col-12 pt-2">
+        <div class="row">
+            <a class="p-1" href="#"><img src="~/dist/images/social-icons/32_PNG/32-facebook.png" /></a>
+            <a class="p-1" href="#"><img src="~/dist/images/social-icons/32_PNG/32-twitter.png" /></a>
+            <a class="p-1" href="#"><img src="~/dist/images/social-icons/32_PNG/32-linkedin.png" /></a>
+            <a class="p-1" href="#"><img src="~/dist/images/social-icons/32_PNG/32-tumblr.png" /></a>
+        </div>
+    </div>
+    @foreach (var textBlock in Model.TextBlocks)
+    {
+        var imgs = Model.Images.Where(x => x.TextBlockId == textBlock.Id).ToList();
+        <div class="col-12 p-0 pt-3">
+            <p class="multiline">
+                @Html.Raw(textBlock.Content)
+            </p>
+        </div>
+        @if (imgs != null)
+        {
+            foreach (var img in imgs)
+            {
+                <div class="col-12 p-0 pt-5">
+                    <img class="w-100" src="@img.ImgUrl" />
+                    <div class="col-12 text-center">
+                        <em class="small">@img.ShortDescription</em>
+                    </div>
+                </div>
+            }
+        }
+    }
+    <div class="col-12 p-0 text-dark">
+        <hr />
+    </div>
+    <div class="col-12 p-0">
+        <h5 class="font-weight-bold">Tin liên quan</h5>
+        <ul>
+            @foreach (var item in sameCats)
+            {
+                <li><a href="@Url.Action("Detail", "News", new { slug = item.Slug })">@item.Title</a></li>
+            }
+            @*<li><a href="#">Dự án đầu tư xây dụng nhà máy chế biến Graphite Yên Bái</a></li>
+                <li><a href="#">Dự án đầu tư xây dựng công trình khai thác mỏ Graphite Yên Bái</a></li>
+                <li><a href="#">Lô hàng thiết bị máy móc đầu tiên đã được nhập về</a></li>
+                <li><a href="#">Chương trình từ thiện hưởng ứng phong trào “ chăn ấm ngày đông”</a></li>*@
+        </ul>
+    </div>
+</div>
