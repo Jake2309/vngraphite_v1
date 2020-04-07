@@ -41,11 +41,11 @@
                                         </figure>
                                     </div>
                                     <div class="col-12 pt-2 text-dark news-contain">
-                                        <div class="col-12 p-0 title-contain">
-                                            <a class="font-weight-bold h5" href="@Url.Action("Detail", "News", new { slug = newsItem.Slug })">
+                                        <h5>
+                                            <a class="font-weight-bold text-dark" href="@Url.Action("Detail", "News", new { slug = newsItem.Slug })">
                                                 @newsItem.Title
                                             </a>
-                                        </div>
+                                        </h5>
                                         <div><span>@newsItem.ShortDescription</span></div>
                                     </div>
                                     <div class="col-12 text-dark">

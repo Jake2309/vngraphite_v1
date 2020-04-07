@@ -18,7 +18,7 @@ namespace VNGraphiteCore.Controllers
                 return View("Index.Mobile");
             }
 
-            return View(); 
+            return View();
         }
     }
 }

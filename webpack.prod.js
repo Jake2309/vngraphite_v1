@@ -8,8 +8,6 @@ module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
-            { from: 'src/appstrap/assets/img', to: 'images/appstrap/img' },
-            { from: 'src/appstrap/assets/favicons', to: 'images/appstrap/favicons' },
             { from: 'src/images', to: 'images' }
         ])
     ],
